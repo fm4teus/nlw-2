@@ -1,5 +1,9 @@
 # Proffy
 
+
+[![projeto](https://img.shields.io/badge/fm4teus-NLW2-orange)](https://github.com/fm4teus/nlw-2)
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/fm4teus/nlw-2/blob/master/LICENSE)
+
 <img src="./design/home-web.png"/>
 
 <div align="center">
@@ -44,33 +48,21 @@ Design made by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/).
 
 ## 📥 How to use
 
-- Clone this repository: `git clone https://github.com/gabriaraujo/proffy.git`
+- Clone this repository: `git clone https://github.com/fm4teus/nlw-2.git`
 
 To run the application just open the directories and execute the commands below:
 - Install dependencies: `yarn install`
 - If your database isn't set yet, run `yarn knex:migrate` on the [Server](https://github.com/fm4teus/nlw-2/tree/master/server)
 - Run application: `yarn start`
 
-Note that the [Web](https://github.com/fm4teus/nlw-2/tree/master/web) folder contains the entire application developed for the browser. The 
-[Mobile](https://github.com/fm4teus/nlw-2/tree/master/mobile) folder contains the project for mobile devices and to run it on the smartphone 
-just scan the QR Code generated after executing the commands. The [Server](https://github.com/fm4teus/nlw-2/tree/master/server) folder contains
-the project backend, which must always be running for both applications to work as expected.
+Note that the [Web](https://github.com/fm4teus/nlw-2/tree/master/web) folder contains the responsive application developed for the browser. The 
+[Mobile](https://github.com/fm4teus/nlw-2/tree/master/mobile) folder contains the project for mobile devices. The [Server](https://github.com/fm4teus/nlw-2/tree/master/server) folder contains the project backend, which must always be running for both applications to work as expected.
 
 ## 🚀 Build With
-- [ReactJS](https://reactjs.org/) - React is an open-source JavaScript library for building user interfaces.
-- [React Native](https://reactnative.dev/) - An open-source mobile application framework. It is used to develop applications for Android, iOS, Web and UWP by enabling 
-developers to use React along with native platform capabilities.
-- [Node.js](https://nodejs.org/en/) - An open-source, cross-platform, JavaScript runtime environment (Framework) that executes JavaScript code outside a web browser.
-- [TypeScript](https://www.typescriptlang.org) - A strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for 
-development of large applications and transcompiles to JavaScript.
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Markup language for documents designed to be displayed in a web browser.
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Stylesheet language used to describe the presentation of a document written in HTML or XML.
+- [ReactJS](https://reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org)
 
 ## 📕 License
 The software is available under the [MIT License](https://github.com/fm4teus/nlw-2/blob/master/LICENSE).
-
-
-## ☕ Questions?
-If you have any questions, please feel free to contact me.
-
-Thanks!
