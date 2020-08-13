@@ -1,7 +1,9 @@
 # Proffy
 
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fm4teus)](https://www.linkedin.com/in/fm4teus)
 [![projeto](https://img.shields.io/badge/fm4teus-NLW2-orange)](https://github.com/fm4teus/nlw-2)
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/fm4teus/nlw-2/blob/master/LICENSE)
+
 
 ## 📑 About
 
@@ -21,6 +23,11 @@ Developed during the 2nd edition of [Rocketseat](https://rocketseat.com.br)'s Ne
 ## 📚 Functionality
 - Students can search for teachers filtering by subject, day of the week and/or time.
 - Teachers can register their classes providing info about subjects, schedules, prices and contact.
+
+## 🛠 Updates
+Next Level Week was an amazing opportunity to improve my knowledge of some powerful technologies. Nevertheless, there is still a lot of room for improvement. In this section, I'll keep you updated as new features are introduced.
+- 🔍 Search Filters are now optional. You can display all teachers and search for those that match all parameters or at least some of them. 
+
 
 ## 🎨 Design
 
@@ -47,7 +54,7 @@ To run the application just open the directories and execute the commands below:
 - Run application: `yarn start`
 
 Note that the [Web](https://github.com/fm4teus/nlw-2/tree/master/web) folder contains the responsive application developed for the browser. The 
-[Mobile](https://github.com/fm4teus/nlw-2/tree/master/mobile) folder contains the project for mobile devices. The [Server](https://github.com/fm4teus/nlw-2/tree/master/server) folder contains the project backend, which must always be running for both applications to work as expected.
+[Mobile](https://github.com/fm4teus/nlw-2/tree/master/mobile) folder contains the application for mobile devices. The [Server](https://github.com/fm4teus/nlw-2/tree/master/server) folder contains the project backend, which must always be running for both applications to work as expected.
 
 ## 🚀 Build With
 - [ReactJS](https://reactjs.org/)
