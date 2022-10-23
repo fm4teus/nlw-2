@@ -10,6 +10,27 @@ import Select from '../../components/Select';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
 
+function translateError(e:string){
+    if(e.includes("field name should not be empty")){
+        return "Nome não preenchido"
+    }
+    if(e.includes("field bio should not be empty")){
+        return "Biografia não preenchida"
+    }
+    if(e.includes("field subject should not be empty")){
+        return "Matéria não preenchida"
+    }
+    if(e.includes("invalid whatsapp number")){
+        return "Número de whatsapp inválido"
+    }
+    if(e.includes("class already exists")){
+        return "Já existe um anúncio parecido"
+    }
+    if(e.includes("invalid class value; use a value between 20 and 200 BRL")){
+        return "Valor inválido, deve estar entre R$20 e R$200"
+    }
+}
+
 function TeacherForm(){
 
     const history = useHistory();
@@ -37,7 +58,7 @@ function TeacherForm(){
             subject,
             cost: Number(cost),
             schedule: scheduleItems
-        }).then(()=>{alert("cadastro realizado com sucesso"); history.push('/')}).catch(()=>{alert("Erro no cadastro")})
+        }).then(()=>{alert("cadastro realizado com sucesso"); history.push('/')}).catch((err)=>{alert(`Erro no cadastro: ${translateError(err.response.data.error)}`)})
 
         console.log({
             name,
