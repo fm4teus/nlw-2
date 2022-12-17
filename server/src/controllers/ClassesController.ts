@@ -1,14 +1,15 @@
 import { Request, Response } from 'express';
 import db from '../database/connection';
 import convertHourToMinutes from '../utils/convertHourToMinutes';
+import ClassRepository from '../repository/classes';
 
-interface ScheduleItem{
+export interface ScheduleItem{
     week_day: number;
     from: string;
     to: string;
 }
 
-interface ReqBody{
+export interface ReqBody{
     name: string;
     avatar: string;
     whatsapp: string;
@@ -17,6 +18,8 @@ interface ReqBody{
     cost: number;
     schedule: ScheduleItem[];
 }
+
+const classRepository = new ClassRepository();
 
 export default class ClassesController {
     async index( request: Request, response: Response ){
@@ -29,31 +32,9 @@ export default class ClassesController {
         
         const timeInMinutes = convertHourToMinutes(time);
         
-        const classes = await db('classes')
-            .whereExists(function(){
-                this.select('class_schedule.*')
-                .from('class_schedule')
-                .whereRaw('`class_schedule`.`class_id` = `classes`.`id`')
-                .modify((queryBuilder)=>{
-                    week_day ?
-                    queryBuilder.whereRaw('`class_schedule`.`week_day` = ??', [Number(week_day)]) :
-                    {}
-                } ) 
-                .modify((queryBuilder)=>{
-                    timeInMinutes ?
-                    queryBuilder.whereRaw('`class_schedule`.`from` <= ??', [Number(timeInMinutes)])
-                    .whereRaw('`class_schedule`.`to` > ??', [Number(timeInMinutes)]) :
-                    {}
-                } ) 
-            })
-            .modify((queryBuilder)=>{
-                subject ?
-                queryBuilder.where('classes.subject', '=', subject) :
-                {}
-            } ) 
-            .join('users', 'classes.user_id', '=', 'users.id')
-            .select(['classes.*', 'users.*']);
-            response.json( classes );       
+        const classes = await classRepository.filter(subject,timeInMinutes,week_day);
+        
+        response.json( classes );       
     }
 
     async create( request: Request, response: Response ){
@@ -124,12 +105,11 @@ export default class ClassesController {
             error: `Unexpected error while creating new ClassSchedule: ${err}`
         })
     }
-}
+    }
 }
 
-async function validate({name,bio,cost,subject,whatsapp}: ReqBody){
-    const wrapIfEmpty = (s: string, field: string) => {if (!s) throw `field ${field} should not be empty` }
-
+export async function validate({name,bio,cost,subject,whatsapp}: ReqBody){
+    const wrapIfEmpty = (s: string, field: string) => {if (!s) throw `field ${field} should not be empty` }    
     // validate empty fields
     wrapIfEmpty(name,"name")
     wrapIfEmpty(bio,"bio")
