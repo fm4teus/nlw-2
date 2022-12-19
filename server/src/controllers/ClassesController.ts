@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import {Knex} from "knex"
 import db from '../database/connection';
 import convertHourToMinutes from '../utils/convertHourToMinutes';
 import ClassRepository from '../repository/classes';
@@ -28,8 +29,6 @@ export default class ClassesController {
         const subject = filters.subject as string;
         const time = filters.time as string;
         const week_day = filters.week_day as string;
-
-        
         const timeInMinutes = convertHourToMinutes(time);
         
         const classes = await classRepository.filter(subject,timeInMinutes,week_day);
@@ -130,4 +129,6 @@ export async function validate({name,bio,cost,subject,whatsapp}: ReqBody){
     if(cost<20 || cost>200){
         throw 'invalid class value; use a value between 20 and 200 BRL'
     }
+
+    return true
 }   
